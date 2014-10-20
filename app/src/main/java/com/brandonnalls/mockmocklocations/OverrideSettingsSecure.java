@@ -1,6 +1,7 @@
 package com.brandonnalls.mockmocklocations;
 
 import android.content.ContentResolver;
+import android.provider.Settings;
 
 import de.robv.android.xposed.IXposedHookLoadPackage;
 import de.robv.android.xposed.XC_MethodHook;
@@ -14,7 +15,7 @@ public class OverrideSettingsSecure implements IXposedHookLoadPackage {
             @Override
             protected void beforeHookedMethod(MethodHookParam param) throws Throwable {
                 String requested = (String) param.args[1];
-                if (requested.equals("mock_location")) {
+                if (requested.equals(Settings.Secure.ALLOW_MOCK_LOCATION)) {
                     param.setResult("0");
                 }
             }
