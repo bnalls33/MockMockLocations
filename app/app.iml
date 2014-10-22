@@ -78,7 +78,7 @@
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/symbols" />
       <excludeFolder url="file://$MODULE_DIR$/build/outputs" />
     </content>
-    <orderEntry type="jdk" jdkName="Android 4.4.2 Xposed Bridge APIs" jdkType="Android SDK" />
+    <orderEntry type="jdk" jdkName="Android 4.0.3 Xposed Bridge APIs" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>
