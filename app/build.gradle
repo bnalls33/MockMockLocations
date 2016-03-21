@@ -1,8 +1,8 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 'rovo89:Xposed Bridge APIs:15'
-    buildToolsVersion "20.0.0"
+    compileSdkVersion 15
+    buildToolsVersion "23.0.2"
 
     defaultConfig {
         applicationId "com.brandonnalls.mockmocklocations"
@@ -13,8 +13,7 @@ android {
     }
     buildTypes {
         release {
-            runProguard false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            minifyEnabled false
         }
     }
 }
