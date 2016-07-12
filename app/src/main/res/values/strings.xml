@@ -1,4 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Mock Mock Locations</string>
+    <string name="title_activity_whitelist">Whitelist Settings</string>
+    <string name="empty_state">No applications in whitelist.</string>
+    <string name="all_apps_whitelisted_state">All apps have Mock Locations spoofed. </string>
+    <string name="loading_app_list">Loading your apps.</string>
+    <string name="toolbar_whitelist_all_setting">All Apps</string>
+    <string name="toolbar_whitelist_add_app">Add App</string>
+    <string name="dialog_whitelist_title_add_app">Add App To Mock</string>
+    <string name="toolbar_whitelist_donation">Donate</string>
+    <string name="remove_app_title">Remove App</string>
+    <string name="remove_app_message">Removed apps will detect Mock Locations is enabled.</string>
+    <string name="restart_required">Restart the phone to apply changes.</string>
 </resources>
