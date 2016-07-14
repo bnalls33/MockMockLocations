@@ -23,7 +23,6 @@ public class OverrideSettingsSecure implements IXposedHookLoadPackage {
         if (sharedPreferences.getBoolean(Common.PREF_KEY_WHITELIST_ALL, true) ||
                 sharedPreferences.getStringSet(Common.PREF_KEY_WHITELIST_APP_LIST, new HashSet<String>(0)).contains(lpparam.packageName)) {
 
-            // Settings.Secure.ALLOW_MOCK_LOCATION is depprecated at API level 23
             findAndHookMethod("android.provider.Settings.Secure", lpparam.classLoader, "getString",
                     ContentResolver.class, String.class, new XC_MethodHook() {
                         @Override
@@ -34,6 +33,18 @@ public class OverrideSettingsSecure implements IXposedHookLoadPackage {
                             }
                         }
                     });
+            if (Build.VERSION.SDK_INT >= 17) {
+                findAndHookMethod("android.provider.Settings.Secure", lpparam.classLoader, "getStringForUser",
+                        ContentResolver.class, String.class, Integer.TYPE, new XC_MethodHook() {
+                            @Override
+                            protected void beforeHookedMethod(MethodHookParam param) throws Throwable {
+                                String requested = (String) param.args[1];
+                                if (requested.equals(Settings.Secure.ALLOW_MOCK_LOCATION)) {
+                                    param.setResult("0");
+                                }
+                            }
+                        });
+            }
 
             // at API level 18, the function Location.isFromMockProvider is added
             if (Build.VERSION.SDK_INT >= 18) {
